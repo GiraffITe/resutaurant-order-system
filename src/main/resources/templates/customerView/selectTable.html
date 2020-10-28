@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>TableSelect</title>
+</head>
+<body>
+	<h1>テーブルを選択してください</h1>
+	<form th:action="@{/select-menu}" method="post">
+		<input type="submit" value="水星-Mercury" name="tableName" /> 
+		<input type="submit" value="金星-Venus" name="tableName"/> 
+		<input type="submit" value="地球-Earth" name="tableName"/> 
+		<input type="submit" value="火星-Mars" name="tableName"/> 
+		<input type="submit" value="木星-Jupiter" name="tableName"/>
+		<input type="submit" value="土星-Saturn" name="tableName"/>
+		<input type="submit" value="天王星-Uranus" name="tableName"/>
+		<input type="submit" value="海王星-Neptune" name="tableName"/>
+	</form>
+</body>
+</html>

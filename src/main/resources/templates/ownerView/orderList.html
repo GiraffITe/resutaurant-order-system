@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html　xmlns:th="//www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>OrderList</title>
+</head>
+<body>
+
+<h1>オーダー一覧</h1>
+
+	<table>
+		<tr>
+			<th>お品物</th>
+			<th>数量</th>
+			<th>テーブル</th>
+			<th>完了</th>
+		</tr>
+		<tr th:each="order:${orderList}" >
+	  		<td th:text="${order.menuName}" />
+			<td th:text="${order.quantity}" />
+			<td th:text="${order.tableName}" />
+			<td><input type="checkbox" name="flag">
+		</tr>
+	
+	</table>
+
+<h2>お会計</h2>
+<form th:action="@{/owner-bill}" method="post">
+	<input type="submit" value="水星-Mercury" name="tableName" /> 
+	<input type="submit" value="金星-Venus" name="tableName"/> 
+	<input type="submit" value="地球-Earth" name="tableName"/> 
+	<input type="submit" value="火星-Mars" name="tableName"/> 
+	<input type="submit" value="木星-Jupiter" name="tableName"/>
+	<input type="submit" value="土星-Saturn" name="tableName"/>
+	<input type="submit" value="天王星-Uranus" name="tableName"/>
+	<input type="submit" value="海王星-Neptune" name="tableName"/>
+</form>
+
+</body>
+</html>

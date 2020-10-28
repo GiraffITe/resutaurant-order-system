@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>メニュー追加</h2>
+	<form th:action="@{add-menu}" th:object ="${menuForm}" method="post">
+		<table>
+			<tr>
+				<th>メニュー名</th>
+				<td><input type="text" th:field="*{menuName}" /></td>
+			</tr>
+			<tr>
+				<th>値段</th>
+				<td><input type="number" th:field="*{price}" /></td>
+			</tr>
+		</table>
+		<input type ="submit" value="追加" />
+	</form>
+	<h2>メニューリスト</h2>
+	<form th:action="@{update-menu}" th:value="menuForm" method="post" >
+	<table>
+		<tr>
+			<th>No.</th>
+			<th>お品物</th>
+			<th>お値段</th>
+			<th></th>
+		</tr>
+		<tr th:each="menu:${menu}" >
+	  		<td th:text="${menu.menuNo}" />
+			<td th:text="${menu.menuName}" />
+			<td th:text="${menu.price}" />
+			<td><input type="checkbox" th:value="${menu.menuNo}" name="menuNo" /></td>
+		</tr>
+	</table>
+	
+	<input type="submit" value="修正" name="update" />
+	</form>
+
+</body>
+</html>

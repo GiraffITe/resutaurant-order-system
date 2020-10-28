@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ご注文完了</title>
+</head>
+<body>
+
+	<h1>ご注文ありがとうございます。</h1>
+
+	<table>
+		<tr>
+			<th>お品物</th>
+			<th>数量</th>
+		</tr>
+		<tr th:each="order : ${orderList}">
+			<td th:text="${order.menuName}" />
+			<td th:text="${order.newQuantity}" />
+		</tr>
+	</table>
+
+	<form th:action="select-menu" method="post">
+		<input type="submit" value="確認" />
+		<input type="hidden" th:value="${table}" name="tableName" />
+	</form>
+
+</body>
+</html>

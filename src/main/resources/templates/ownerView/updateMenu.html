@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action ="@{end-update-menu}" th:object="${menuForm}" method="post">
+	<table>
+		<tr>
+			<th>商品No.</th>
+			<th>商品名</th>
+			<th>価格</th>
+		</tr>
+		<tr>
+			<td th:text="${menuInfo.menuNo}" />
+			<td><input type="text" th:field="${menuInfo.menuName}" />
+			<td><input type="text" th:field="${menuInfo.price}" />
+		</tr>
+	</table>
+	<input type="submit" value="修正" />
+	<input type="hidden" th:value="${menuInfo.menuNo}" name="menuNo" />
+	</form> 
+	
+	<form th:action ="@{end-delete-menu}" method="post" >
+		<input type="submit" value="削除" />
+		<input type="hidden" th:value="${menuInfo.menuNo}" name="menuNo" />
+	</form>
+
+</body>
+</html>

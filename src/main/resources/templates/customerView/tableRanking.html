@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Ranking</title>
+</head>
+<body>
+	<h1>テーブル別ランキング</h1>
+	<table>
+		<tr>
+			<td>順位</td>
+			<td>メニュー</td>
+		</tr>
+		<tr th:each="ranking:${ranking}" >
+			<td th:text="${ranking.number}" />
+			<td th:text="${ranking.menuName}" />
+		</tr>
+	</table>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>selectMenu</title>
+</head>
+<body>
+
+	<h1>ご注文をどうぞ</h1>
+	<span th:text="${table}"></span>
+	
+	
+	
+		<table>
+			<tr>
+				<th>お品物</th>
+				<th>値段</th>
+				<th>数量</th>
+			</tr>
+			<form th:action="@{/order-end}" th:object="${orderForm}" method="post">
+			<tr th:each="menu : ${menuList}" >
+				<td th:text="${menu.menuName}" />
+				<td th:text="${menu.price}" />
+				
+				<td><input type="number" min="0"  value="0" name="quantity" id="puantity"></td>
+				
+			</tr>	
+		</table>
+		
+		
+		<input type="submit" value="送信" />
+		<input type="hidden" th:value="${table}" name="tableName" /> 
+		</form>
+		
+		<h2>ランキング</h2>
+		<form th:action="@{/table-ranking}" method="post">
+			<input type="submit" value="テーブル別ランキング" name="table" />
+			<input type="hidden" th:value="${table}" name="tableName">
+		</form>
+		
+		<form th:action="@{/all-ranking}" method="post">
+			<input type="submit" value="全体ランキング" name="all" />
+		</form>
+		
+		<h2>お会計確認</h2>
+		<form th:action="@{bill}" method="post">
+			<input type="submit" value="お会計" name="bill" />
+			<input type="hidden" th:value="${table}" name="tableName">
+		</form>
+			
+</body>
+</html>
